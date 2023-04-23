@@ -29,8 +29,8 @@ const RepoCard = ({
 				)}
 			</div>
 			<div className='flex flex-wrap'>
-				{topics.map((topic) => (
-					<p className='p-2 bg-yankeesBlue rounded-lg text-sm text-lightPeriwinkle my-2 mx-1'>
+				{topics.map((topic,key) => (
+					<p key={key} className='p-2 bg-yankeesBlue rounded-lg text-sm text-lightPeriwinkle my-2 mx-1'>
 						{topic}
 					</p>
 				))}
