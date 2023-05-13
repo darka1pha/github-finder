@@ -2,7 +2,7 @@ import { RepoCard } from '@components/user'
 import { getData } from 'helpers'
 import { RepoProps } from '../page'
 
-interface UserProps {
+interface ReposPageProps {
 	params: {
 		id: number
 	}
@@ -12,7 +12,7 @@ interface UserProps {
 	login: string
 }
 
-const Repos = async ({ params: { id } }: UserProps) => {
+const Repos = async ({ params: { id } }: ReposPageProps) => {
 	const data: UserProps = await getData(`user/${id}?`)
 	const repositories: Array<RepoProps> = await getData(
 		`users/${data.login}/repos?`
