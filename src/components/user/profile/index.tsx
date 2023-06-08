@@ -19,8 +19,8 @@ const Profile = ({
 	blog,
 }: ProfileProps) => {
 	return (
-		<div className='border-r-[1px] border-yankeesBlue p-3 w-72 flex flex-col items-center'>
-			<div className='h-48 w-48 rounded-full overflow-hidden'>
+		<div className='md:border-r-[1px] md:border-b-0 pb-5 md:pb-0 border-b-[1px] border-yankeesBlue p-3 w-full  md:w-72 flex flex-col items-center'>
+			<div className='h-48 w-48 rounded-full overflow-hidden mx-auto'>
 				<Image
 					alt='avatar'
 					src={avatar}

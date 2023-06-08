@@ -35,7 +35,7 @@ const UserLayout = async ({
 	return (
 		<main>
 			<Menu />
-			<div className='flex p-8'>
+			<div className='flex p-8 md:flex-row flex-col'>
 				<Profile
 					avatar={data.avatar_url}
 					fullname={data.name}
