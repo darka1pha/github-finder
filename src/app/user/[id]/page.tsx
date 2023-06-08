@@ -31,7 +31,7 @@ const User = async ({ params: { id } }: UserPageProps) => {
 
 	return (
 		<div className='flex'>
-			<div className='flex flex-wrap flex-1 w-full p-4'>
+			<div className='flex flex-wrap flex-1 w-full p-2 md-p-4'>
 				{repositories
 					.slice(0, 4)
 					.map(
