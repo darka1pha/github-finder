@@ -15,7 +15,7 @@ const RepoCard = ({
 		<Link
 			href={html_url}
 			target='_blank'
-			className='flex flex-1 flex-col min-w-[380px] basis-[46%] h-48 flex-shrink p-4 border-yankeesBlue border-[1px] rounded-xl m-2'>
+			className='flex flex-1 flex-col md:min-w-[380px] basis-[46%] h-48 flex-shrink p-4 border-yankeesBlue border-[1px] rounded-xl m-2'>
 			<p className='text-tuftsBlue font-semibold text-lg'>{name}</p>
 			<p className='text-lightPeriwinkle overflow-hidden text-ellipsis mt-2'>
 				{description}
