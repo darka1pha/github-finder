@@ -20,7 +20,7 @@ export const getData = async (url: string, cache?: RequestCache) => {
 
 export const searchUsers = async (query: string) => {
 	if (query && query.length > 0)
-		return await getData(`search/users?q=${query}&`)
+		return await getData(`search/users?q=${query}&`, 'no-store')
 	return []
 }
 
