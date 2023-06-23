@@ -27,32 +27,25 @@ const User = async ({ params: { id } }: UserPageProps) => {
 		`users/${data.login}/repos?`
 	)
 
-	console.log(repositories)
-
 	return (
-		<div className='flex'>
-			<div className='flex flex-wrap flex-1 w-full p-2 md-p-4'>
-				{repositories
-					.slice(0, 4)
-					.map(
-						(
-							{ description, fork, forks, html_url, topics, url, name },
-							key
-						) => (
-							<RepoCard
-								name={name}
-								description={description}
-								fork={fork}
-								forks={forks}
-								html_url={html_url}
-								topics={topics}
-								url={url}
-								key={key}
-							/>
-						)
-					)}
-			</div>
-		</div>
+		<>
+			{repositories
+				.slice(0, 4)
+				.map(
+					({ description, fork, forks, html_url, topics, url, name }, key) => (
+						<RepoCard
+							name={name}
+							description={description}
+							fork={fork}
+							forks={forks}
+							html_url={html_url}
+							topics={topics}
+							url={url}
+							key={key}
+						/>
+					)
+				)}
+		</>
 	)
 }
 

@@ -22,7 +22,11 @@ const UserLayout = async ({
 					blog={data.blog}
 					bio={data.bio}
 				/>
-				{children}
+				<div className='flex flex-1'>
+					<div className='flex flex-wrap flex-1 w-full p-2 md-p-4'>
+						{children}
+					</div>
+				</div>
 			</div>
 		</main>
 	)
