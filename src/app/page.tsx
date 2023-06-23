@@ -1,13 +1,17 @@
 import { ItemsContainer, Search } from '@components'
-import { Inter } from 'next/font/google'
+import { SearchResultProps } from '@types'
+import { getData, searchUsers } from 'helpers'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default async function Home() {
+export default async function Home({
+	searchParams,
+}: {
+	searchParams: { search: string }
+}) {
+	const data: SearchResultProps = await searchUsers(searchParams.search)
 	return (
 		<main className='flex min-h-screen flex-col items-center justify-between p-4 md:p-24'>
 			<Search />
-			<ItemsContainer />
+			<ItemsContainer data={data.items} />
 		</main>
 	)
 }

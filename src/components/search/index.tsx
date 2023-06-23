@@ -1,15 +1,26 @@
 'use client'
 import { ChangeEvent, useState } from 'react'
-import useSearchStore from 'store'
 import Spinner from './spinner'
+import { deleteSearchParams, updateSearchParams } from 'helpers'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const Search = () => {
-	const { getSearchResults, clearResults, results, searching } =
-		useSearchStore()
-	const [search, setSearch] = useState('')
+	const searchParams = useSearchParams()
+	const [search, setSearch] = useState(searchParams.get('search') || '')
+	const router = useRouter()
 	const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearch(e.target.value)
 	}
+	const onSearch = () => {
+		const newPathname = updateSearchParams('search', search)
+		router.push(newPathname)
+	}
+
+	const onClear = () => {
+		const newPathname = deleteSearchParams('search')
+		router.push(newPathname)
+	}
+
 	return (
 		<div className='flex w-full md:flex-row flex-col'>
 			<input
@@ -19,13 +30,13 @@ const Search = () => {
 				onChange={searchHandler}
 			/>
 			<button
-				onClick={() => getSearchResults(search)}
+				onClick={onSearch}
 				className='w-full md:w-48 py-4 mt-4 md:mt-0 md:ml-6 bg-maastrichtBlue flex items-center justify-center rounded-lg hover:scale-105 transition-all ease-in-out active:scale-90'>
-				<p className='text-white'>{searching ? <Spinner /> : 'Submit'}</p>
+				<p className='text-white'>{false ? <Spinner /> : 'Submit'}</p>
 			</button>
-			{results.length !== 0 && (
+			{searchParams.get('search') && (
 				<button
-					onClick={clearResults}
+					onClick={onClear}
 					className='md:px-10 py-4 mt-4 md:mt-0 md:ml-6 bg-red-500 rounded-lg hover:scale-105 transition-all ease-in-out active:scale-90'>
 					<p className='text-white'>Clear</p>
 				</button>

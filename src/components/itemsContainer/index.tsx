@@ -1,12 +1,11 @@
 'use client'
-import useSearchStore from 'store'
 import ItemsCard from './itemsCard'
+import { ItemProps } from '@types'
 
-const ItemsContainer = () => {
-	const { results } = useSearchStore()
+const ItemsContainer = ({ data }: { data: ItemProps[] }) => {
 	return (
 		<div className='flex flex-wrap w-full mt-5'>
-			{results.map(({ avatar_url, id, login }, key) => (
+			{data && data.map(({ avatar_url, id, login }, key) => (
 				<ItemsCard key={key} avatar={avatar_url} name={login} id={id} />
 			))}
 		</div>
