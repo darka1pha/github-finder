@@ -13,10 +13,12 @@ const Search = () => {
 	}
 	const onSearch = () => {
 		const newPathname = updateSearchParams('search', search)
-		router.push(newPathname)
+		if (search.length > 0) router.push(newPathname)
+		else return alert('Please fill the search field :)')
 	}
 
 	const onClear = () => {
+		setSearch('')
 		const newPathname = deleteSearchParams('search')
 		router.push(newPathname)
 	}
